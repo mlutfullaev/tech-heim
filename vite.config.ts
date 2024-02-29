@@ -9,11 +9,4 @@ export default defineConfig({
       "@": resolve(__dirname, "src")
     }
   },
-  css: {
-    preprocessorOptions: {
-      sass: {
-        additionalData: "@import '@/assets/styles/variables'\n\n",
-      },
-    },
-  },
 })
