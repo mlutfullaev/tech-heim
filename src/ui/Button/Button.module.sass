@@ -8,59 +8,44 @@
   cursor: pointer
   transition: .3s
   gap: 8px
+  &.blue
+    --color: var(--primary)
+    --color-disabled: var(--primary-50)
+    --color-hover: var(--primary-600)
+  &.orange
+    --color: var(--secondary)
+    --color-disabled: var(--secondary-100)
+    --color-hover: var(--secondary-600)
+  &.black
+    --color: var(--black)
 
   &.solid
-    color: $white
-    &.blue
-      background-color: $primary
-      border-color: $primary
-      &:hover
-        background-color: $primary-600
-        border-color: $primary-600
-      &:disabled
-        background-color: $primary-50
-        border-color: $primary-50
-    &.orange
-      background-color: $secondary
-      border-color: $secondary
-      &:hover
-        background-color: $secondary-600
-        border-color: $secondary-600
-      &:disabled
-        background-color: $secondary-100
-        border-color: $secondary-100
+    color: var(--white)
+    background-color: var(--color)
+    border-color: var(--color)
+    &:hover
+      background-color: var(--color-hover)
+      border-color: var(--color-hover)
+    &:disabled
+      background-color: var(--color-disabled)
+      border-color: var(--color-disabled)
 
   &.outline
-    background-color: $white
-    &.blue
-      border-color: $primary
-      color: $primary
-      &:hover
-        color: $primary-600
-        border-color: $primary-600
-      &:disabled
-        color: $primary-50
-        border-color: $primary-50
-    &.orange
-      border-color: $secondary
-      color: $secondary
-      &:hover
-        color: $secondary-600
-        border-color: $secondary-600
-      &:disabled
-        color: $secondary-100
-        border-color: $secondary-100
+    background-color: var(--white)
+    border-color: var(--color)
+    color: var(--color)
+    &:hover
+      color: var(--color-hover)
+      border-color: var(--color-hover)
+    &:disabled
+      color: var(--color-disabled)
+      border-color: var(--color-disabled)
 
   &.transparent
     border-color: transparent
     background-color: transparent
-    &.blue
-      color: $primary
-      &:hover
-        color: $primary-600
-    &.orange
-      color: $secondary
-      &:hover
-        color: $secondary-600
-      &:disabled
-        color: $secondary-100
+    color: var(--color)
+    &:hover
+      color: var(--color-hover)
+    &:disabled
+      color: var(--color-disabled)

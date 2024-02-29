@@ -6,4 +6,5 @@ export enum ButtonType {
 export enum ButtonColor {
   BLUE = 'blue',
   ORANGE = 'orange',
+  BLACK = 'black'
 }
