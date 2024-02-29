@@ -1,4 +1,3 @@
-
 // Shadow
 .shadow-1
   box-shadow: -2px 2px 15px -1px rgba($grey-71, 0.12)
@@ -15,99 +14,97 @@
 .br-8
   border-radius: 8px
 
-
 // Fonts
 @mixin font-style($weight, $size)
   font-weight: $weight
-  font-size: $size + px // assuming size is given in pixels
+  font-size: $size + px
 
-// Define classes with the mixin
 .display-1
-  @include font-style(semibold, 64)
+  @include font-style(500, 64)
 
 .display-2
-  @include font-style(semibold, 56)
+  @include font-style(500, 56)
 
 h1
-  @include font-style(medium, 44)
+  @include font-style(500, 44)
 
   @media (max-width: 480px)
     font-size: 24px
 
 h2
-  @include font-style(medium, 40)
+  @include font-style(500, 40)
 
   @media (max-width: 480px)
     font-size: 20px
 
 h3
-  @include font-style(medium, 32)
+  @include font-style(500, 32)
 
   @media (max-width: 480px)
     font-size: 16px
 
 h4
-  @include font-style(medium, 24)
+  @include font-style(500, 24)
 
   @media (max-width: 480px)
     font-size: 14px
 
 h5
-  @include font-style(medium, 20)
+  @include font-style(500, 20)
 
 h6
-  @include font-style(medium, 16)
+  @include font-style(500, 16)
 
 .body-xl
-  @include font-style(light, 20)
+  @include font-style(300, 20)
 
 .body-lg
-  @include font-style(light, 18)
+  @include font-style(300, 18)
 
   @media (max-width: 480px)
     font-size: 16px
 
 .body-md
-  @include font-style(light, 16)
+  @include font-style(300, 16)
 
   @media (max-width: 480px)
     font-size: 14px
 
 .body-sm
-  @include font-style(light, 14)
+  @include font-style(300, 14)
 
   @media (max-width: 480px)
     font-size: 12px
 
 .body-xs
-  @include font-style(light, 12)
+  @include font-style(300, 12)
 
 .caption-lg
-  @include font-style(medium, 14)
+  @include font-style(500, 14)
 
 .caption-md
-  @include font-style(medium, 12)
+  @include font-style(500, 12)
 
 .caption-sm
-  @include font-style(medium, 10)
+  @include font-style(500, 10)
 
 .button-lg
-  @include font-style(light, 16)
+  @include font-style(400, 16)
 
   @media (max-width: 480px)
     font-size: 14px
 
 .button-sm
-  @include font-style(light, 14)
+  @include font-style(300, 14)
 
   @media (max-width: 480px)
     font-size: 12px
 
 .overline-lg
-  @include font-style(light, 16)
+  @include font-style(300, 16)
 
 .overline-sm
-  @include font-style(medium, 12)
+  @include font-style(500, 12)
 
   @media (max-width: 480px)
     font-size: 10px
