@@ -15,7 +15,7 @@ const Button = ({color, type, children, disabled, classNames, props}: ButtonT) =
   return (
     <button
       disabled={disabled}
-      className={`cls.button ${color ? color : "blue"} ${type ? type : "solid"} ${classNames}`}
+      className={`button ${color ? color : "blue"} ${type ? type : "solid"} ${classNames}`}
       {...props}
     >
       {children}

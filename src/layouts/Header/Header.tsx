@@ -8,12 +8,28 @@ import orders from '@/assets/img/icons/bag-2.svg'
 import heart from '@/assets/img/icons/heart.svg'
 import payments from '@/assets/img/icons/dollar-circle.svg'
 import logout from '@/assets/img/icons/logout.svg'
+import shoppingCard from '@/assets/img/icons/shopping-card.svg'
 import {Link, NavLink} from "react-router-dom";
 import {ReactSVG} from "react-svg";
 import {useState} from "react";
+import BagItems from "@/components/BagItem/BagItems.tsx";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/store.ts";
+import Button from "@/ui/Button/Button.tsx";
 
 const Header = () => {
   const [menu, setMenu] = useState<string>('')
+  const bagItems = useSelector((state: RootState) => state.bag.items)
+
+  const bagTotal = () =>
+    bagItems.reduce((acc, cur) => {
+      if (cur.discount) {
+        return acc + cur.discount * cur.quantity
+      } else {
+        return acc + cur.price * cur.quantity
+      }
+    }, 0)
+
   return (
     <>
       <header className="header">
@@ -56,6 +72,7 @@ const Header = () => {
                 <ReactSVG src={search} />
               </button>
               <button
+                disabled={!bagItems.length}
                 onClick={() => setMenu(old => old === 'bag' ? '' : 'bag')}
               >
                 <ReactSVG src={bag} />
@@ -95,9 +112,21 @@ const Header = () => {
               <span className="body-lg">Log out</span>
             </button>
           </div>
-          <div className="content bag">
-            <p className="body-lg">3 items</p>
-          </div>
+          {
+            bagItems.length ?
+              <div className="content bag">
+                <p className="body-lg">{bagItems.length} items</p>
+                <BagItems />
+                <div className="bag-bottom">
+                  <h6><span className="body-sm">Grand total </span><br/>$ {bagTotal()}</h6>
+                  <Button>
+                    Proceed to Cart
+                    <ReactSVG src={shoppingCard} />
+                  </Button>
+                </div>
+              </div>
+              : ''
+          }
         </div>
       </div>
     </>

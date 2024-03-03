@@ -1,12 +1,12 @@
 // Shadow
 .shadow-1
-  box-shadow: -2px 2px 15px -1px rgba(var(--grey-71), 0.12)
+  box-shadow: -2px 2px 15px -1px rgba(#717171, 0.12)
 
 .shadow-2
-  box-shadow: -2px 2px 20px -1px rgba(var(--grey-71), 0.2)
+  box-shadow: -2px 2px 20px -1px rgba(#717171, 0.2)
 
 .shadow-3
-  box-shadow: -2px 2px 10px -1px rgba(var(--grey-71), 0.15)
+  box-shadow: -2px 2px 10px -1px rgba(#717171, 0.15)
 
 // Border-radius
 .br-4
@@ -109,8 +109,16 @@ h6
   @media (max-width: 480px)
     font-size: 10px
 
+
+// others
+
 .border
   height: 1px
   width: 100%
   display: block
   background: linear-gradient(90deg, rgba(12,104,244,0.3) 0%, rgba(12,104,244,0.7) 50%, rgba(12,104,244,0.3) 100%)
+
+button:disabled
+  opacity: 0.7
+  user-select: none
+  pointer-events: none

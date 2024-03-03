@@ -1,0 +1,73 @@
+#bag
+  display: grid
+  grid-gap: 10px
+
+  .item
+    display: grid
+    grid-template-columns: auto 1fr
+    align-items: center
+    gap: 20px
+    padding: 10px
+
+    .properties
+      padding: 10px 0
+      display: grid
+      grid-gap: 5px
+
+      .caption-sm
+        color: var(--grey-71)
+        display: flex
+        gap: 5px
+        align-items: center
+
+        .color
+          width: 15px
+          height: 15px
+          border-radius: 100%
+          display: block
+
+        svg
+          fill: var(--primary)
+
+    .item-bottom
+      display: flex
+      justify-content: space-between
+
+      .price
+        display: flex
+        gap: 5px
+        align-items: center
+
+        span
+          color: var(--grey-71)
+          text-decoration: line-through
+          font-size: 12px
+
+        p
+          font-size: 16px
+          color: var(--black)
+      .buttons
+        display: flex
+        align-items: center
+        gap: 10px
+
+        & > button svg
+          fill: var(--error)
+          transition: .3s
+
+          &:hover
+            fill: var(--primary)
+        .quantity
+          border-bottom: 1px solid var(--grey-9e)
+          display: flex
+          gap: 7px
+          padding: 2px
+
+          svg
+            fill: var(--grey-71)
+            transition: .3s
+
+            &:hover
+              fill: var(--primary)
+          p
+            color: var(--grey-71)
