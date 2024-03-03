@@ -1,11 +1,15 @@
 import router from "./routes.tsx";
-import {RouterProvider} from "react-router-dom";
+import Header from "@/layouts/Header/Header.tsx";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <Header />
+      <Routes>
+        {router.map(route => <Route path={route.path} element={route.element}/>)}
+      </Routes>
     </>
   )
 }

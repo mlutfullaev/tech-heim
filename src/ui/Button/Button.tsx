@@ -1,5 +1,5 @@
 import React, {ReactPropTypes} from "react";
-import cls from './Button.module.sass'
+import './Button.sass'
 import {ButtonColor, ButtonType} from "@/assets/js/types.ts";
 
 type ButtonT = {
@@ -15,7 +15,7 @@ const Button = ({color, type, children, disabled, classNames, props}: ButtonT) =
   return (
     <button
       disabled={disabled}
-      className={`${cls.button} ${color ? cls[color] : cls.blue} ${type ? cls[type] : cls.solid} ${classNames}`}
+      className={`cls.button ${color ? color : "blue"} ${type ? type : "solid"} ${classNames}`}
       {...props}
     >
       {children}
