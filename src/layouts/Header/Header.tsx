@@ -99,7 +99,7 @@ const Header = () => {
         </div>
         <div className="border"></div>
       </header>
-      <div className={`header-menu ${menu ? menu : ''}`}>
+      <div className={`header-menu ${menu ? menu : 'hide'}`}>
         <div className="container">
           <div className="header-menu-content user">
             <button>

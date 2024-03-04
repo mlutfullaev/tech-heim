@@ -41,7 +41,13 @@
   width: 100vw
   background-color: rgba(0, 0, 0, 0.6)
   padding: 108px 0
+  transition: .3s
+  opacity: 1
 
+  &.hide
+    pointer-events: none
+    user-select: none
+    opacity: 0
   &.user .user,
   &.bag .bag,
   &.products #menu
