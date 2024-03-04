@@ -9,17 +9,24 @@ import heart from '@/assets/img/icons/heart.svg'
 import payments from '@/assets/img/icons/dollar-circle.svg'
 import logout from '@/assets/img/icons/logout.svg'
 import shoppingCard from '@/assets/img/icons/shopping-card.svg'
-import {Link, NavLink} from "react-router-dom";
-import {ReactSVG} from "react-svg";
-import {useState} from "react";
-import BagItems from "@/components/BagItem/BagItems.tsx";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store/store.ts";
-import Button from "@/ui/Button/Button.tsx";
+import {Link, NavLink, useLocation} from 'react-router-dom'
+import { ReactSVG } from 'react-svg'
+import BagItems from '@/components/BagItem/BagItems.tsx'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store.ts'
+import Button from '@/ui/Button/Button.tsx'
+import Menu from '@/layouts/Menu/Menu.tsx'
+import {useOutsideClick} from '@/hooks/useOutsideClick.ts'
+import {useEffect, useState} from 'react'
 
 const Header = () => {
   const [menu, setMenu] = useState<string>('')
   const bagItems = useSelector((state: RootState) => state.bag.items)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (menu) setMenu('')
+  }, [location]);
 
   const bagTotal = () =>
     bagItems.reduce((acc, cur) => {
@@ -29,6 +36,12 @@ const Header = () => {
         return acc + cur.price * cur.quantity
       }
     }, 0)
+
+    const handleOutsideClick = (): void => {
+       if (menu) setMenu('')
+    };
+
+    useOutsideClick("header-menu-content", handleOutsideClick);
 
   return (
     <>
@@ -45,8 +58,7 @@ const Header = () => {
               </NavLink>
               <NavLink
                 onMouseEnter={() => setMenu('products')}
-                onMouseLeave={() => setMenu('')}
-                className="body-lg"
+                className={`body-lg${menu === 'products' ? ' active' : ''}`}
                 to='/products'
               >
                 Products
@@ -87,9 +99,9 @@ const Header = () => {
         </div>
         <div className="border"></div>
       </header>
-      <div className={`menu ${menu ? menu : ''}`}>
+      <div className={`header-menu ${menu ? menu : ''}`}>
         <div className="container">
-          <div className="content user">
+          <div className="header-menu-content user">
             <button>
               <ReactSVG src={profileCircles} />
               <span className="userName body-lg">Jimmy Smith</span>
@@ -114,7 +126,7 @@ const Header = () => {
           </div>
           {
             bagItems.length ?
-              <div className="content bag">
+              <div className="header-menu-content bag">
                 <p className="body-lg">{bagItems.length} items</p>
                 <BagItems />
                 <div className="bag-bottom">
@@ -127,6 +139,7 @@ const Header = () => {
               </div>
               : ''
           }
+          <Menu />
         </div>
       </div>
     </>

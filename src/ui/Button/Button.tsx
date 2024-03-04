@@ -2,20 +2,20 @@ import React, {ReactPropTypes} from "react";
 import './Button.sass'
 import {ButtonColor, ButtonType} from "@/assets/js/types.ts";
 
-type ButtonT = {
-  color?: ButtonColor;
-  type?: ButtonType,
+interface ButtonT extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonColor?: ButtonColor;
+  buttonType?: ButtonType,
   disabled?: boolean;
   classNames?: string;
   props?: ReactPropTypes
   children: React.ReactNode
 }
 
-const Button = ({color, type, children, disabled, classNames, props}: ButtonT) => {
+const Button = ({buttonColor, buttonType, children, disabled, classNames, ...props}: ButtonT) => {
   return (
     <button
       disabled={disabled}
-      className={`button ${color ? color : "blue"} ${type ? type : "solid"} ${classNames}`}
+      className={`button ${buttonColor ? buttonColor : "blue"} ${buttonType ? buttonType : "solid"} ${classNames}`}
       {...props}
     >
       {children}
