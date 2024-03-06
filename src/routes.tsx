@@ -7,7 +7,7 @@ const router = [
     element: <Main />,
   },
   {
-    path: "/products",
+    path: "/products/:type",
     element: <Products />,
   },
 ]
